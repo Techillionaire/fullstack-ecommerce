@@ -28,3 +28,7 @@ a.active hr{
         color: white;
     }
   }
+
+input[type = 'checkbox']{
+  accent-color: black;
+}

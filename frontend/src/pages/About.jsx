@@ -12,12 +12,12 @@ const About = () => {
       </div>
 
       <div className='my-10 flex flex-col md:flex-row gap-16'>
-          <img className='w-full md:max-w-[450px]' src={assets.about_img} alt="" />
+          <img className='w-full object-cover md:max-w-[450px]' src='https://img.freepik.com/free-photo/still-life-say-no-fast-fashion_23-2149669608.jpg?uid=R164646544&ga=GA1.2.1642242442.1716375531&semt=ais_hybrid' alt="" />
           <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-              <p>Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.</p>
-              <p>Since our inception, we've worked tirelessly to curate a diverse selection of high-quality products that cater to every taste and preference. From fashion and beauty to electronics and home essentials, we offer an extensive collection sourced from trusted brands and suppliers.</p>
+              <p>At RoyalBoutique, we believe fashion is an expression of individuality, style, and confidence. Specializing in men’s and women’s shoes, bags, and accessories, we provide timeless designs and the latest trends to complement your wardrobe. Our collections are crafted with care, ensuring quality and comfort, while offering a unique blend of elegance and modern style. Whether you're stepping out for a special occasion or looking for everyday essentials, RoyalBoutique brings a touch of luxury to every step you take.</p>
+              <p>At RoyalBoutique, our passion goes beyond providing products. We believe in creating an exceptional shopping experience that brings sophistication and comfort to your wardrobe. Our commitment to quality and customer satisfaction is reflected in every piece we offer, ensuring that you not only look your best but feel confident in every step you take.</p>
               <b className='text-gray-800'>Our Mission</b>
-              <p>Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.</p>
+              <p>At RoyalBoutique, our mission is to inspire confidence and elevate style by providing premium footwear, bags, and accessories for men and women. We are committed to delivering products that combine elegance, quality, and innovation, ensuring that every customer feels empowered and fashionable in their daily lives. Our focus is on exceptional craftsmanship, attention to detail, and customer satisfaction, making RoyalBoutique the go-to destination for timeless fashion and modern trends.</p>
           </div>
       </div>
 

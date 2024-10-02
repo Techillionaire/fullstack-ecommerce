@@ -19,7 +19,7 @@ const Hero = () => {
             </div>
       </div>
       {/* Hero Right Side */}
-      <img className='w-full sm:w-1/2' src={assets.hero_img} alt="" />
+      <img className='w-full sm:w-1/2' src='https://img.freepik.com/premium-photo/bag-with-name-mom-it_1253114-33049.jpg?uid=R164646544&ga=GA1.2.1642242442.1716375531&semt=ais_hybrid' alt="" />
     </div>
   )
 }

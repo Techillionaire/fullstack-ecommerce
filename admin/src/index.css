@@ -9,11 +9,16 @@
 
 select,input,textarea{
     border: 1px solid #c2c2c2;
-    outline-color: #C586A5;
+    outline-color: black;
     border-radius: 4px;
 }
 
 .active{
-    background-color: #ffebf5;
-    border-color: #C586A5;
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+input[type = 'checkbox']{
+    accent-color: black;
 }
