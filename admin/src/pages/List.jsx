@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
+import { CiTrash } from 'react-icons/ci'
 
 const List = ({ token }) => {
 
@@ -70,7 +71,7 @@ const List = ({ token }) => {
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>{currency}{item.price}</p>
-              <p onClick={()=>removeProduct(item._id)} className='text-right md:text-center cursor-pointer text-lg'>X</p>
+              <p onClick={()=>removeProduct(item._id)} className='flex justify-center items-center cursor-pointer text-lg'><CiTrash /></p>
             </div>
           ))
         }

@@ -14,11 +14,13 @@ select,input,textarea{
 }
 
 .active{
-    background-color: black;
-    border-color: black;
-    color: white;
+    border: 2px solid black;
 }
 
 input[type = 'checkbox']{
     accent-color: black;
+}
+
+.aside::-webkit-scrollbar{
+  display: none;
 }
