@@ -1,19 +1,34 @@
 import React, {  useContext, useState } from 'react'
 import Title from '../components/Title'
 import { ShopContext } from '../context/ShopContext'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { useParams } from 'react-router-dom'
 
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('')
 
-      const {navigate} = useContext(ShopContext)
-
+      const { backendUrl } = useContext(ShopContext)
+    
 
       const onSubmitHandler = async (e) => {
         e.preventDefault()
-  
+       
+      try {
+        const response = await axios.post(backendUrl + '/api/user/forgot-password', {email})
+        if(response.data.success){
+          toast.success(response.data.message)
+        }else{
+          return toast.error(response.data.message)
+        }
         
-        navigate('/reset-password')
+        
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+        
+      }
       }
    
   return (

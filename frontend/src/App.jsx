@@ -38,7 +38,7 @@ const App = () => {
         <Route path='/verify' element={<Verify />} />
         <Route path='/profile' element={<Profile />}/>
         <Route path='/forgot-password' element={<ForgotPassword />}/>
-        <Route path='/reset-password' element={<ResetPassword />}/>
+        <Route path='/reset-password/:token' element={<ResetPassword />}/>
       </Routes>
       <Footer />
     </div>
