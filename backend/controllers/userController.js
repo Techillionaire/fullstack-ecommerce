@@ -99,5 +99,24 @@ const adminLogin = async (req, res) => {
     }
 }
 
+const getAllUsers = async (req, res) => {
+    
 
-export { loginUser, registerUser, adminLogin }
+    try {
+        const user = await userModel.find({})
+        if(!user){
+            res.json({sucess : false, message : 'error occured'})
+        }
+        
+        res.json({success : true, data : user})
+    } catch (error) {
+        console.log(error);
+        res.json({success : false, message : error.message})
+    }
+
+
+
+}
+
+
+export { loginUser, registerUser, adminLogin, getAllUsers }
