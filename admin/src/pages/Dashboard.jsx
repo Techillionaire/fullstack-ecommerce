@@ -4,13 +4,14 @@ import "chart.js/auto";
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { backendUrl } from '../App'
+import { getGreeting } from '../../greeting';
 
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { Link } from 'react-router-dom';
 
 const Dashboard = ({token}) => {
 
-
+    const greeting = getGreeting()
     const [customers, setCustomers] = useState([])
 
     const fetchCustomers = async () => {
@@ -113,7 +114,7 @@ const Dashboard = ({token}) => {
 
 
     <div className='shadow-md p-4 lg:col-start-1 lg:col-end-7 col-span-12 '>
-       <p>Good Morning, Lee</p>
+       <p className='text-gray-800 text-xl font-medium'>{greeting}</p>
        <p>Here's what happening with your store, today</p>
 
 
