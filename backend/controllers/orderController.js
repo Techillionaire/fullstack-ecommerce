@@ -1,6 +1,8 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import productModel from "../models/productModel.js";
 import Stripe from 'stripe';
+
 
 // global variables
 const currency = 'usd';
@@ -8,6 +10,7 @@ const deliveryCharge = 10;
 
 // gateway initialize
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
 
 
 
@@ -41,7 +44,9 @@ const placeOrder = async (req, res) => {
 // Placing orders using Stripe Method
 const placeOrderStripe = async (req, res) => {
     try {
-        const { userId, items, amount, address } = req.body;
+        const {userId, items, amount, address } = req.body;
+        
+
         const { origin } = req.headers;
 
         const orderData = {

@@ -54,11 +54,13 @@ const List = ({ token }) => {
 
         {/* ------- List Table Title ---------- */}
 
-        <div className='hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-1 px-2 border bg-gray-100 text-sm'>
+        <div className='hidden md:grid grid-cols-[2fr_1fr_3fr_1fr_1fr_1fr_1fr] items-center py-1 px-2 border bg-gray-100 text-sm'>
+          <b>Product ID</b>
           <b>Image</b>
           <b>Name</b>
           <b>Category</b>
           <b>Price</b>
+          <b>Stock</b>
           <b className='text-center'>Action</b>
         </div>
 
@@ -66,11 +68,13 @@ const List = ({ token }) => {
 
         {
           list.map((item, index) => (
-            <div className='grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border text-sm' key={index}>
+            <div className='grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[2fr_1fr_3fr_1fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border text-sm' key={index}>
+              <p>{item._id}</p>
               <img className='w-12' src={item.image[0]} alt="" />
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>{currency}{item.price}</p>
+              <p>{item.stock}</p>
               <p onClick={()=>removeProduct(item._id)} className='flex justify-center items-center cursor-pointer text-lg'><CiTrash /></p>
             </div>
           ))

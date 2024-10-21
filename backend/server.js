@@ -24,6 +24,12 @@ app.use('/api/product',productRouter)
 app.use('/api/cart',cartRouter)
 app.use('/api/order',orderRouter)
 
+
+app.get('/api/admin-name', (req, res) => {
+    const adminName = process.env.ADMIN_NAME ;
+    res.json({ adminName });
+  });
+
 app.get('/',(req,res)=>{
     res.send("API Working")
 })

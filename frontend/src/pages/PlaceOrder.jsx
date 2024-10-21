@@ -6,8 +6,10 @@ import { ShopContext } from '../context/ShopContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const PlaceOrder = () => {
 
+const PlaceOrder = () => {
+       
+    
     const [method, setMethod] = useState('cod');
     const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, delivery_fee, products } = useContext(ShopContext);
     const [formData, setFormData] = useState({
@@ -68,6 +70,7 @@ const PlaceOrder = () => {
                         const itemInfo = structuredClone(products.find(product => product._id === items))
                         if (itemInfo) {
                             itemInfo.size = item
+                            itemInfo.stock > 0
                             itemInfo.quantity = cartItems[items][item]
                             orderItems.push(itemInfo)
                         }

@@ -5,9 +5,23 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import { backendUrl } from '../App'
 import { getGreeting } from '../../greeting';
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
 
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { Link } from 'react-router-dom';
+import Greeting from '../components/Greeting';
 
 const Dashboard = ({token}) => {
 
@@ -39,41 +53,50 @@ const Dashboard = ({token}) => {
 
 
     const data = {
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "June",
-          "July",
-          "Aug",
-          "Sept",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        datasets: [
-          {
-            label: "Wavy Data",
-            data: [3, 2, 5, 1, 4, 2, 1, 4, 3, 2, 4, 5],
-            borderColor: "#3490dc",
-            backgroundColor: "rgba(52, 144, 220, 0.2)",
-            tension: 0.5, // This adds the wave/curved effect
+      labels: [
+        "Jan", "Feb", "Mar", "Apr", "May", "June",
+        "July", "Aug", "Sept", "Oct", "Nov", "Dec"
+      ],
+      datasets: [
+        {
+          label: "Monthly Analysis",
+          data: [3, 2, 5, 1, 4, 2, 1, 4, 3, 2, 4, 5], // Your data
+          backgroundColor: "rgba(52, 144, 220, 0.8)", // Bar color
+          borderColor: "#3490dc", // Bar border color
+          borderWidth: 0,
+          barThickness: 15, // Control the width of the bars
+          borderRadius: 10, // Round the corners of the bars
+          // maxBarThickness: 30,
+
+        },
+      ],
+    };
+  
+    const options = {
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1, // Adjust the step size to fit your data range
           },
-        ],
-      };
-    
-      const options = {
-        scales: {
-          y: { beginAtZero: true },
         },
-        animation: {
-          duration: 2000, // Animation speed
-          easing: "easeInOutSine", // Smooth wavy animation
+      },
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
         },
-      };
-    
+        title: {
+          display: true,
+          text: 'Monthly Data Analysis ',
+        },
+      },
+      animation: {
+        duration: 2000,
+        easing: "easeInOutSine",
+      },
+    };
       const asideRef = useRef()
 
       const handleWheel = (e) => {
@@ -101,7 +124,7 @@ const Dashboard = ({token}) => {
         }, []);
       
     
-    
+      
 
 
 
@@ -109,12 +132,12 @@ const Dashboard = ({token}) => {
     <>
 
 
-    <section className='grid grid-cols-12 gap-5 w-full'>
+    <section className='grid  grid-cols-12 gap-5 w-full'>
 
 
 
     <div className='shadow-md p-4 lg:col-start-1 lg:col-end-7 col-span-12 '>
-       <p className='text-gray-800 text-xl font-medium'>{greeting}</p>
+       <p className='text-gray-800 text-xl font-medium'><Greeting /></p>
        <p>Here's what happening with your store, today</p>
 
 
@@ -284,7 +307,8 @@ const Dashboard = ({token}) => {
             <p className="font-semibold">Analytics</p>
             <p className="text-gray-500">Yearly</p>
           </div>
-          <Line data={data} options={options} />
+        
+      <Bar data={data} options={options} />
         </div>
    
 
